@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.sas.simulados.exception.GenericException;
 import br.com.sas.simulados.json.Json;
 import br.com.sas.simulados.json.JsonResult;
 import br.com.sas.simulados.model.Simulado;
@@ -27,6 +28,9 @@ public class SimuladoRest {
 	public JsonResult getSimulados() {
 		List<Simulado> simulados = new ArrayList<Simulado>();
 		simulados.add(new Simulado());
-		return Json.success().withData(simulados).build();
+		
+		throw new GenericException("app.testes");
+		
+		/////////return Json.success().withData(simulados).build();
 	}
 }

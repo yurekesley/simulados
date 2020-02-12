@@ -26,13 +26,8 @@ public class SimuladosApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		Locale.setDefault(new Locale("pt", "BR"));
+		///log.info(msg);
 		ResourceBundleUtil.setResourceBundleMessageSource(resourceBundle);
-
-		try {
-
-		} catch (Throwable ex) {
-			log.error("Falha no processamento de gerar solicitações", ex);
-		}
 	}
 
 }

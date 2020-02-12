@@ -26,6 +26,7 @@ public @Data class JsonResult {
 	@NonNull
 	private String mensagem;
 
+	@NonNull
 	private Object data;
 
 	private Integer code;

@@ -30,6 +30,14 @@ public class GenericException extends RuntimeException {
 		this.typeError = typeError;
 		log.info(message, this);
 	}
+	
+	
+	public GenericException(String message, Object... params) {
+		super(message);
+		this.typeError = TypeError.DANGER;
+		this.params = params;
+		log.info(message, this, params);
+	}
 
 	public GenericException(TypeError typeError, String message, Object... params) {
 		this(typeError, message);
