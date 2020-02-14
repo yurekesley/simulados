@@ -1,0 +1,3 @@
+CREATE TABLE SGS_SIMULADOS(
+   simulado_id serial PRIMARY KEY
+);

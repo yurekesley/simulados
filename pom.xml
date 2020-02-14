@@ -23,8 +23,9 @@
 		</start-class>
 		<docker.image.name> yurekesley/sas-simulados</docker.image.name>
 		<docker.image.tag> latest </docker.image.tag>
-		<flywaydb.url>jdbc:h2:file:./target/simulados-test</flywaydb.url>
+		<flywaydb.url>jdbc:h2:file:./target/simulados-test;MODE=PostgreSQL;DATABASE_TO_LOWER=TRUE</flywaydb.url>
 		<flywaydb.user>sa</flywaydb.user>
+		<flywaydb.password></flywaydb.password>
 	</properties>
 
 	<dependencies>
@@ -76,10 +77,24 @@
 			<scope>test</scope>
 			<exclusions>
 				<exclusion>
+					<groupId>org.junit.jupiter</groupId>
+					<artifactId>junit-jupiter</artifactId>
+				</exclusion>
+				<exclusion>
 					<groupId>org.junit.vintage</groupId>
 					<artifactId>junit-vintage-engine</artifactId>
 				</exclusion>
+				<exclusion>
+					<groupId>org.mockito</groupId>
+					<artifactId>mockito-junit-jupiter</artifactId>
+				</exclusion>
 			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.12</version>
 		</dependency>
 
 		<dependency>
@@ -104,6 +119,10 @@
 				<configuration>
 					<url>${flywaydb.url}</url>
 					<user>${flywaydb.user}</user>
+					<password>${flywaydb.password}</password>
+					<schemas>
+						<schema>public</schema>
+					</schemas>
 					<locations>
 						<location>
 							filesystem:db/migrations
@@ -112,6 +131,9 @@
 							filesystem:db/callbacks
 						</location>
 					</locations>
+					<encoding>UTF-8</encoding>
+					<placeholderReplacement>true</placeholderReplacement>
+					<cleanDisabled>false</cleanDisabled>
 				</configuration>
 				<dependencies>
 					<dependency>
@@ -170,7 +192,8 @@
 					<jdkVersion>${java.version}</jdkVersion>
 					<processTypes>
 						<web>java $JAVA_OPTS -cp target/classes:target/dependency/*
-							SimuladosApplication</web>
+							SimuladosApplication
+						</web>
 					</processTypes>
 				</configuration>
 			</plugin>

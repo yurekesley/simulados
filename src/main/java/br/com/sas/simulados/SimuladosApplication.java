@@ -9,10 +9,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.support.ResourceBundleMessageSource;
 
 import br.com.sas.simulados.util.ResourceBundleUtil;
-import lombok.extern.slf4j.Slf4j;
 
 @SpringBootApplication
-@Slf4j
 public class SimuladosApplication implements CommandLineRunner {
 
 	@Autowired
@@ -20,13 +18,11 @@ public class SimuladosApplication implements CommandLineRunner {
 
 	public static void main(String[] args) {
 		SpringApplication.run(SimuladosApplication.class, args);
-
 	}
 
 	@Override
 	public void run(String... args) throws Exception {
 		Locale.setDefault(new Locale("pt", "BR"));
-		///log.info(msg);
 		ResourceBundleUtil.setResourceBundleMessageSource(resourceBundle);
 	}
 
