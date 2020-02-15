@@ -7,12 +7,14 @@ import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -33,6 +35,10 @@ public @Data class Prova implements Serializable {
 	@SequenceGenerator(name = "SGS_PROVAS_ID_SEQ", sequenceName = "SGS_PROVAS_ID_SEQ", allocationSize = 50)
 	@Column(name = "PROVA_ID")
 	private Long id;
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "MATERIA_ID", referencedColumnName = "MATERIA_ID")
+	private Materia materia;
 
 	@Column(name = "DATA_PROVA", columnDefinition = "DATE")
 	private LocalDate data;

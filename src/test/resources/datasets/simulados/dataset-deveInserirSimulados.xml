@@ -8,12 +8,24 @@
 		SIMULADO_ID = "2"
 	 />
 	 
+	  <SGS_MATERIAS 
+	  	MATERIA_ID = "1"
+	  	DESCRICAO  = "Matemática"
+	  />
+	  
+	   <SGS_MATERIAS 
+	  	MATERIA_ID = "2"
+	  	DESCRICAO  = "Física"
+	  />
+	  	 
 	 <SGS_PROVAS
-	 	PROVA_ID = "1" 
+	 	PROVA_ID = "1"
+	 	MATERIA_ID = "1" 
 	  />
 	  
 	  <SGS_PROVAS
 	 	PROVA_ID = "2" 
+	 	MATERIA_ID = "1"
 	  />
 	  
 	  <SGS_SIMU_PROVA
@@ -24,11 +36,6 @@
 	   <SGS_SIMU_PROVA
 	  		SIMULADO_ID = "2"
 	  	 	PROVA_ID = "2" 
-	  />
-	  
-	  <SGS_MATERIAS 
-	  	MATERIA_ID = "1"
-	  	DESCRICAO  = "Matemática"
 	  />
 	  
 	  <SGS_QUESTOES 
