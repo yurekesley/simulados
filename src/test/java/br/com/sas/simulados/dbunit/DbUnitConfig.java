@@ -15,7 +15,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 import org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor;
-import org.springframework.jdbc.datasource.SingleConnectionDataSource;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.JpaVendorAdapter;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
@@ -26,6 +25,7 @@ import br.com.triadworks.dbunit.DbUnitManager;
 import br.com.triadworks.dbunit.DefaultDbUnitManagerImpl;
 import br.com.triadworks.dbunit.connection.CachedDbUnitConnectionCreator;
 import br.com.triadworks.dbunit.connection.DefaultDbUnitConnectionCreator;
+import lombok.Getter;
 
 /**
  * @author yure.placido
@@ -38,6 +38,10 @@ public class DbUnitConfig {
 	@Autowired
 	private Environment env;
 
+	@Autowired(required = false)
+	@Getter
+	DataSource dataSource;
+
 	@Bean
 	public DbUnitManager dbunitManager(DataSource dataSource, CustomDbUnitDataSetResolver dataSetResolver) {
 		CachedDbUnitConnectionCreator connectionCreator = new CachedDbUnitConnectionCreator(
@@ -45,21 +49,11 @@ public class DbUnitConfig {
 		DbUnitManager dbunitManager = new DefaultDbUnitManagerImpl(connectionCreator, dataSetResolver);
 		return dbunitManager;
 	}
-	
-	@Bean
-	public DataSource dataSource() {
-		SingleConnectionDataSource dataSource = new SingleConnectionDataSource();
-		dataSource.setUrl(env.getProperty("jdbc.url"));
-		dataSource.setUsername(env.getProperty("jdbc.username"));
-		dataSource.setPassword(env.getProperty("jdbc.password"));
-		dataSource.setSuppressClose(true);
-		return dataSource;
-	}
 
 	@Bean
 	public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
 		LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
-		em.setDataSource(dataSource());
+		em.setDataSource(getDataSource());
 		em.setPackagesToScan(new String[] { "br.com.sas.simulados" });
 
 		JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();

@@ -21,11 +21,11 @@
 		<start-class>
 			br.com.sas.simulados.SimuladosApplication
 		</start-class>
-		<docker.image.name> yurekesley/sas-simulados</docker.image.name>
+		<docker.image.name>yurekesley/sas-simulados</docker.image.name>
 		<docker.image.tag> latest </docker.image.tag>
-		<flywaydb.url>jdbc:h2:file:./target/simulados-test;MODE=PostgreSQL;DATABASE_TO_LOWER=TRUE</flywaydb.url>
+		<flywaydb.url>jdbc:h2:file:./db/simulados-test;MODE=PostgreSQL;DATABASE_TO_UPPER=TRUE;IGNORECASE=TRUE;
+		</flywaydb.url>
 		<flywaydb.user>sa</flywaydb.user>
-		<flywaydb.password></flywaydb.password>
 	</properties>
 
 	<dependencies>
@@ -66,8 +66,6 @@
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
-			<scope>runtime</scope>
-			<version>1.4.199</version>
 		</dependency>
 
 		<!-- TESTS -->
@@ -119,7 +117,6 @@
 				<configuration>
 					<url>${flywaydb.url}</url>
 					<user>${flywaydb.user}</user>
-					<password>${flywaydb.password}</password>
 					<schemas>
 						<schema>public</schema>
 					</schemas>
@@ -139,7 +136,7 @@
 					<dependency>
 						<groupId>com.h2database</groupId>
 						<artifactId>h2</artifactId>
-						<version>1.4.199</version>
+						<version>1.4.197</version>
 					</dependency>
 				</dependencies>
 			</plugin>

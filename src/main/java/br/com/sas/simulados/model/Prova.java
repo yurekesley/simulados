@@ -1,6 +1,3 @@
-/**
- * 
- */
 package br.com.sas.simulados.model;
 
 import java.io.Serializable;
@@ -26,23 +23,23 @@ import lombok.Data;
  * @Data 11 de fev de 2020
  */
 @Entity
-@Table(name = "SGS_SIMULADOS")
-public @Data class Simulado implements Serializable {
+@Table(name = "SGS_PROVAS")
+public @Data class Prova implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SIMULADOS_ID_SEQ")
-	@SequenceGenerator(name = "SIMULADOS_ID_SEQ", sequenceName = "SGS_SIMULADOS_ID_SEQ", allocationSize = 1)
-	@Column(name = "SIMULADO_ID")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "PROVAS_ID_SEQ")
+	@SequenceGenerator(name = "SGS_PROVAS_ID_SEQ", sequenceName = "SGS_PROVAS_ID_SEQ", allocationSize = 50)
+	@Column(name = "PROVA_ID")
 	private Long id;
 
-	@Column(name = "DATA_SIMULADO", columnDefinition = "DATE")
+	@Column(name = "DATA_PROVA", columnDefinition = "DATE")
 	private LocalDate data;
 
 	@ManyToMany
-	@JoinTable(name = "SGS_SIMU_PROVA", joinColumns = { @JoinColumn(name = "SIMULADO_ID") }, inverseJoinColumns = {
-			@JoinColumn(name = "PROVA_ID") })
-	private Set<Prova> provas = new HashSet<Prova>();
+	@JoinTable(name = "SGS_QUES_PROVA", joinColumns = { @JoinColumn(name = "PROVA_ID") }, inverseJoinColumns = {
+			@JoinColumn(name = "QUESTAO_ID") })
+	private Set<Questao> questoes = new HashSet<Questao>();
 
 }

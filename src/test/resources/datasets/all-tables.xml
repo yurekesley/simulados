@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataset>
+	<SGS_PROVAS />
 	<SGS_SIMULADOS />
+	<SGS_SIMU_PROVA />
+	<SGS_MATERIAS />
+	<SGS_QUESTOES />
+	<SGS_QUES_PROVA />
 </dataset>
