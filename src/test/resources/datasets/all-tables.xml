@@ -4,6 +4,8 @@
 	<SGS_SIMU_PROVA />
 	<SGS_MATERIAS />
 	<SGS_PROVAS />
+	<SGS_NIVEL />
 	<SGS_QUESTOES />
 	<SGS_QUES_PROVA />
+	<SGS_RESPOSTAS />
 </dataset>
