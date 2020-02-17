@@ -1,11 +1,5 @@
 package br.com.sas.simulados.model;
 
-/**
- * @author yure.placido
- * @Data 11 de fev de 2020
- */
-
-import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -26,9 +20,7 @@ import lombok.Data;
 
 @Entity
 @Table(name = "SGS_QUESTOES")
-public @Data class Questao implements Serializable {
-
-	private static final long serialVersionUID = 1L;
+public @Data class Questao implements IBaseModel {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "QUESTOES_ID_SEQ")
@@ -50,6 +42,5 @@ public @Data class Questao implements Serializable {
 	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
 	@JoinColumn(name = "QUESTAO_ID")
 	private Set<Resposta> respostas = new HashSet<Resposta>();
-	
-	
+
 }

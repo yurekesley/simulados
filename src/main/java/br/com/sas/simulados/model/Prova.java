@@ -1,6 +1,5 @@
 package br.com.sas.simulados.model;
 
-import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
@@ -26,9 +25,7 @@ import lombok.Data;
  */
 @Entity
 @Table(name = "SGS_PROVAS")
-public @Data class Prova implements Serializable {
-
-	private static final long serialVersionUID = 1L;
+public @Data class Prova implements IBaseModel {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "PROVAS_ID_SEQ")

@@ -3,8 +3,6 @@
  */
 package br.com.sas.simulados.model;
 
-import java.io.Serializable;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -21,9 +19,7 @@ import lombok.Data;
  */
 @Entity
 @Table(name = "SGS_NIVEL")
-public @Data class Nivel implements Serializable {
-
-	private static final long serialVersionUID = 1L;
+public @Data class Nivel implements IBaseModel {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "NIVEL_ID_SEQ")
