@@ -9,9 +9,13 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 @Entity
 @Table(name = "SGS_RESPOSTAS")
+@EqualsAndHashCode
+@ToString
 public @Data class Resposta implements IBaseModel {
 
 	@Id

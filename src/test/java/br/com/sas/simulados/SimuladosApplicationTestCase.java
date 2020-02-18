@@ -7,19 +7,26 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.web.servlet.MockMvc;
 
+import br.com.sas.simulados.config.TestWebAppConfig;
 import br.com.sas.simulados.dbunit.DbUnitConfig;
 import br.com.triadworks.dbunit.DbUnitManager;
 import br.com.triadworks.dbunit.dataset.ClassPathDataSetSource;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = { SimuladosApplication.class, DbUnitConfig.class })
+@SpringBootTest(classes = { SimuladosApplication.class, TestWebAppConfig.class, DbUnitConfig.class })
 public abstract class SimuladosApplicationTestCase {
+
+	public static final String codUsuarioPadrao = "sas";
 
 	@Autowired
 	protected DbUnitManager dbunitManager;
 
 	protected DataSource dataSource;
+
+	@Autowired
+	protected MockMvc mvc;
 
 	public static final String DATASET_ALL_TABLES = "datasets/all-tables.xml";
 
@@ -39,4 +46,5 @@ public abstract class SimuladosApplicationTestCase {
 	protected String dataSet(String xml) {
 		return "datasets/" + xml;
 	}
+
 }

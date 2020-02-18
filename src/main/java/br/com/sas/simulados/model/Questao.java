@@ -15,12 +15,14 @@ import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonValue;
-
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 @Entity
 @Table(name = "SGS_QUESTOES")
+@EqualsAndHashCode
+@ToString
 public @Data class Questao implements IBaseModel {
 
 	@Id
