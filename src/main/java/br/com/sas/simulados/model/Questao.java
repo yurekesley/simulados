@@ -6,7 +6,6 @@ import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -15,6 +14,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonValue;
 
 import lombok.Data;
 
@@ -31,11 +32,11 @@ public @Data class Questao implements IBaseModel {
 	@Column(name = "ENUNCIADO", columnDefinition = "TEXT")
 	private String enunciado;
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne
 	@JoinColumn(name = "MATERIA_ID", referencedColumnName = "MATERIA_ID")
 	private Materia materia;
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne
 	@JoinColumn(name = "NIVEL_ID", referencedColumnName = "NIVEL_ID")
 	private Nivel nivel;
 

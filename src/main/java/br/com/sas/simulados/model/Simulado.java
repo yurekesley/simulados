@@ -18,6 +18,13 @@ import javax.persistence.ManyToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
+import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
+
 import lombok.Data;
 
 /**
@@ -26,6 +33,7 @@ import lombok.Data;
  */
 @Entity
 @Table(name = "SGS_SIMULADOS")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"}) 
 public @Data class Simulado implements IBaseModel {
 
 	@Id
@@ -34,6 +42,9 @@ public @Data class Simulado implements IBaseModel {
 	@Column(name = "SIMULADO_ID")
 	private Long id;
 
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
+	@JsonDeserialize(using = LocalDateDeserializer.class)
+	@JsonSerialize(using = LocalDateSerializer.class)
 	@Column(name = "DATA_SIMULADO", columnDefinition = "DATE")
 	private LocalDate data;
 

@@ -37,7 +37,7 @@ public abstract class ReadController<T extends IBaseModel, ID extends Serializab
 	}
 
 	@GetMapping
-	public JsonResult consultarTodos() {
+	public JsonResult findAll() {
 
 		List<T> all = this.getService().findAll();
 
