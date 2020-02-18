@@ -37,6 +37,11 @@
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
 
@@ -132,37 +137,6 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
-			<plugin>
-				<groupId>org.flywaydb</groupId>
-				<artifactId>flyway-maven-plugin</artifactId>
-				<version>6.2.2</version>
-				<configuration>
-					<url>${flywaydb.url}</url>
-					<user>${flywaydb.user}</user>
-					<schemas>
-						<schema>public</schema>
-					</schemas>
-					<locations>
-						<location>
-							filesystem:db/migrations
-						</location>
-						<location>
-							filesystem:db/callbacks
-						</location>
-					</locations>
-					<encoding>UTF-8</encoding>
-					<placeholderReplacement>true</placeholderReplacement>
-					<cleanDisabled>false</cleanDisabled>
-				</configuration>
-				<dependencies>
-					<dependency>
-						<groupId>com.h2database</groupId>
-						<artifactId>h2</artifactId>
-						<version>1.4.197</version>
-					</dependency>
-				</dependencies>
-			</plugin>
-
 			<plugin>
 				<artifactId>maven-resources-plugin</artifactId>
 				<executions>

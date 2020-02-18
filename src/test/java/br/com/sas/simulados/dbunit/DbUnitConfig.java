@@ -12,8 +12,6 @@ import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
-import org.springframework.core.env.Environment;
 import org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.JpaVendorAdapter;
@@ -32,11 +30,7 @@ import lombok.Getter;
  * @Data 11 de fev de 2020
  */
 @Configuration
-@PropertySource("classpath:jdbc-local.properties")
 public class DbUnitConfig {
-
-	@Autowired
-	private Environment env;
 
 	@Autowired(required = false)
 	@Getter

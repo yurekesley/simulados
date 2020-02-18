@@ -22,9 +22,9 @@ public class SwaggerConfig {
 				.build() //
 				.apiInfo(metaData());
 	}
-		
+
 	private ApiInfo metaData() {
-		return new ApiInfoBuilder().title("Números por extenso") //
+		return new ApiInfoBuilder().title("SAS - Simulados API") //
 				.description("\"Spring Boot REST API") //
 				.version("0.0.1-SNAPSHOT") //
 				.license("GitHub") //

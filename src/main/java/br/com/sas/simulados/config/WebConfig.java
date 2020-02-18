@@ -9,6 +9,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
+import org.springframework.security.config.web.server.ServerHttpSecurity;
+import org.springframework.security.web.server.SecurityWebFilterChain;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
@@ -62,4 +64,14 @@ public class WebConfig implements WebMvcConfigurer {
 		registry.addResourceHandler("/webjars/**").addResourceLocations("classpath:/META-INF/resources/webjars/");
 	}
 
+	/*
+	@Bean
+	public SecurityWebFilterChain securityWebFilterChain(
+	  ServerHttpSecurity http) {
+	    return http.authorizeExchange()
+	      .pathMatchers("/actuator/**").permitAll()
+	      .anyExchange().authenticated()
+	      .and().build();
+	}
+	*/
 }
