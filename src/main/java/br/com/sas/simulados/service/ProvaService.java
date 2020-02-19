@@ -3,6 +3,7 @@ package br.com.sas.simulados.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import br.com.sas.simulados.exception.GenericException;
 import br.com.sas.simulados.model.Gabarito;
 import br.com.sas.simulados.model.Prova;
 import br.com.sas.simulados.service.readonly.ReadService;
@@ -19,9 +20,16 @@ public class ProvaService extends ReadService<Prova, Long> {
 	@Autowired
 	private ProvaService provaService;
 
-	public Gabarito findGabaritoByProva(Long id) {
-		Prova prova = provaService.findById(id);
-		return gabaritoService.findByProva(prova);
+	public Gabarito findGabarito(Long id) {
+		Prova prova = this.findById(id);
+
+		Gabarito gabarito = prova.getGabarito();
+
+		if (gabarito == null) {
+			throw new GenericException("msg.crud.error.notfound");
+		}
+
+		return gabarito;
 	}
 
 }

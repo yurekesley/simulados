@@ -14,10 +14,12 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
@@ -59,5 +61,12 @@ public @Data class Prova implements IBaseModel {
 	@JoinTable(name = "SGS_QUES_PROVA", joinColumns = { @JoinColumn(name = "PROVA_ID") }, inverseJoinColumns = {
 			@JoinColumn(name = "QUESTAO_ID") })
 	private Set<Questao> questoes = new HashSet<Questao>();
+
+	@JsonIgnore
+	@OneToOne
+	@JoinColumn(name = "PROVA_ID", referencedColumnName = "PROVA_ID")
+	@JoinTable(name = "SGS_GABARITO_PROVA", joinColumns = { @JoinColumn(name = "PROVA_ID") }, inverseJoinColumns = {
+			@JoinColumn(name = "GABARITO_ID") })
+	private Gabarito gabarito;
 
 }

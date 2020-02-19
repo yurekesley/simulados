@@ -32,8 +32,7 @@
 	  	MATERIA_ID = "1"
 	  	NIVEL_ID  =  "1"
 	  />
-	  
-	  
+	  	  
 	  <SGS_QUES_PROVA 
 	  	PROVA_ID = "1" 
 	  	QUESTAO_ID  = "1"
@@ -69,9 +68,14 @@
 	  	ENUNCIADO	= "Alternativa 5"
 	  /> 
 	  
-	  <SGS_GABARITO 
+	  <SGS_GABARITOS
 	  	GABARITO_ID = "1"
-	  	PROVA_ID 	= "1"	
 	  />
 	  	
+	  <SGS_GABARITO_PROVA
+	  	GABARITO_ID = "1"
+	  	PROVA_ID	= "1"
+	   />
+	   
+	   
 </dataset>

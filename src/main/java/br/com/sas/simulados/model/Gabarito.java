@@ -1,12 +1,16 @@
 package br.com.sas.simulados.model;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -17,7 +21,7 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 @Entity
-@Table(name = "SGS_GABARITO")
+@Table(name = "SGS_GABARITOS")
 @EqualsAndHashCode
 @ToString
 @AllArgsConstructor
@@ -32,8 +36,8 @@ public @Data class Gabarito implements IBaseModel {
 	@Column(name = "GABARITO_ID")
 	private Long id;
 
-	@OneToOne
-	@JoinColumn(name = "PROVA_ID", referencedColumnName = "PROVA_ID")
-	private Prova prova;
+	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+	@JoinColumn(name = "GABARITO_ID")
+	private Set<RespostaQuestao> gabaritoQeustao = new HashSet<RespostaQuestao>();
 
 }
