@@ -11,10 +11,14 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -52,5 +56,11 @@ public @Data class Questao implements IBaseModel {
 	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
 	@JoinColumn(name = "QUESTAO_ID")
 	private Set<Resposta> respostas = new HashSet<Resposta>();
+	
+	@JsonIgnore
+	@OneToOne
+	@JoinTable(name = "SGS_GABARITO_QUESTAO", joinColumns = { @JoinColumn(name = "QUESTAO_ID") }, inverseJoinColumns = {
+			@JoinColumn(name = "RESPOSTA_ID") })
+	private Resposta resposta;
 
 }
