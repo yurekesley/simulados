@@ -1,7 +1,7 @@
 /**
  * 
  */
-package br.com.sas.simulados.service.readonly;
+package br.com.sas.simulados.repository;
 
 import java.io.Serializable;
 import java.util.List;

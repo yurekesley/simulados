@@ -12,6 +12,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import br.com.sas.simulados.exception.GenericException;
 import br.com.sas.simulados.model.IBaseModel;
+import br.com.sas.simulados.repository.IReadService;
 import lombok.Getter;
 
 /**

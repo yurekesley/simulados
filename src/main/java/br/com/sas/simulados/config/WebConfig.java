@@ -34,7 +34,7 @@ public class WebConfig implements WebMvcConfigurer {
 		registry.addMapping("/**") //
 				.allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS", "HEAD", "TRACE", "CONNECT");
 	}
-	
+
 	@Bean
 	public MappingJackson2HttpMessageConverter mappingJackson2HttpMessageConverter() {
 		return new MappingJackson2HttpMessageConverter(objectMapper());
@@ -62,14 +62,4 @@ public class WebConfig implements WebMvcConfigurer {
 		registry.addResourceHandler("/webjars/**").addResourceLocations("classpath:/META-INF/resources/webjars/");
 	}
 
-	/*
-	@Bean
-	public SecurityWebFilterChain securityWebFilterChain(
-	  ServerHttpSecurity http) {
-	    return http.authorizeExchange()
-	      .pathMatchers("/actuator/**").permitAll()
-	      .anyExchange().authenticated()
-	      .and().build();
-	}
-	*/
 }

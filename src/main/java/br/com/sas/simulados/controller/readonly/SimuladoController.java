@@ -1,12 +1,11 @@
 /**
  * 
  */
-package br.com.sas.simulados.controller;
+package br.com.sas.simulados.controller.readonly;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.sas.simulados.controller.readonly.ReadController;
 import br.com.sas.simulados.model.Simulado;
 import br.com.sas.simulados.util.RestUtil;
 

@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import br.com.sas.simulados.json.Json;
 import br.com.sas.simulados.json.JsonResult;
 import br.com.sas.simulados.model.IBaseModel;
-import br.com.sas.simulados.service.readonly.IReadService;
+import br.com.sas.simulados.repository.IReadService;
 import lombok.Getter;
 
 /**
