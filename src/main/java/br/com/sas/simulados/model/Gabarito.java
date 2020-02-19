@@ -38,6 +38,6 @@ public @Data class Gabarito implements IBaseModel {
 
 	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
 	@JoinColumn(name = "GABARITO_ID")
-	private Set<RespostaQuestao> gabaritoQeustao = new HashSet<RespostaQuestao>();
+	private Set<GabaritoQuestao> gabaritoQeustao = new HashSet<GabaritoQuestao>();
 
 }

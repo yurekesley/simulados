@@ -18,7 +18,7 @@ import lombok.NoArgsConstructor;
 @Table(name = "SGS_GABARITO_QUESTAO")
 @AllArgsConstructor
 @NoArgsConstructor
-public @Data class RespostaQuestao implements IBaseModel {
+public @Data class GabaritoQuestao implements IBaseModel {
 
 	private static final long serialVersionUID = 1L;
 
