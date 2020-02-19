@@ -19,13 +19,16 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 /**
  * @author yure.placido
@@ -33,8 +36,13 @@ import lombok.Data;
  */
 @Entity
 @Table(name = "SGS_SIMULADOS")
-@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"}) 
+@EqualsAndHashCode
+@ToString
+@AllArgsConstructor
+@NoArgsConstructor
 public @Data class Simulado implements IBaseModel {
+
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SIMULADOS_ID_SEQ")

@@ -10,14 +10,21 @@ import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 @Entity
 @Table(name = "SGS_GABARITO")
 @EqualsAndHashCode
 @ToString
-public class Gabarito implements IBaseModel {
+@AllArgsConstructor
+@NoArgsConstructor
+public @Data class Gabarito implements IBaseModel {
+
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "GABARITO_ID_SEQ")

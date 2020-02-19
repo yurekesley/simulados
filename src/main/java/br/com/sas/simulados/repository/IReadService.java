@@ -14,9 +14,9 @@ import br.com.sas.simulados.model.IBaseModel;
  * @author yure.placido
  * @Data 17 de fev de 2020
  */
-public interface IReadService<E extends IBaseModel, ID extends Serializable> {
+public interface IReadService<T extends IBaseModel, ID extends Serializable> {
 
-	E findById(@PathVariable(value = "id") ID id);
+	T findById(@PathVariable(value = "id") ID id);
 
-	List<E> findAll();
+	List<T> findAll();
 }

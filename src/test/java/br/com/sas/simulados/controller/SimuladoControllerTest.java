@@ -10,7 +10,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 import org.junit.Test;
 import org.springframework.http.MediaType;
-import org.springframework.security.test.context.support.WithMockUser;
 
 import br.com.sas.simulados.SimuladosApplicationTestCase;
 
@@ -18,7 +17,6 @@ import br.com.sas.simulados.SimuladosApplicationTestCase;
  * @author yure.placido
  * @Data 14 de fev de 2020
  */
-@WithMockUser(username = "sas", password = "123", roles = "ADMIN")
 public class SimuladoControllerTest extends SimuladosApplicationTestCase {
 
 	private static final String PATH_DATASET_SIMULADOS = "simulados/";

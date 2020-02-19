@@ -21,9 +21,9 @@ public class ProvaController extends ReadController<Prova, Long> {
 	private ProvaService provaService;
 
 	@GetMapping(value = "/{id}/gabarito")
-	public JsonResult findById(@PathVariable(value = "id") Long id) {
+	public JsonResult findGabaritoByProva(@PathVariable(value = "id") Long id) {
 
-		Gabarito gabarito = provaService.findGabaritoByProvaId(id);
+		Gabarito gabarito = provaService.findGabaritoByProva(id);
 
 		return Json.success() //
 				.withData(gabarito) //

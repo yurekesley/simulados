@@ -6,6 +6,7 @@ import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -22,7 +23,9 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * @author yure.placido
@@ -30,14 +33,18 @@ import lombok.Data;
  */
 @Entity
 @Table(name = "SGS_PROVAS")
+@AllArgsConstructor
+@NoArgsConstructor
 public @Data class Prova implements IBaseModel {
+
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "PROVAS_ID_SEQ")
 	@SequenceGenerator(name = "SGS_PROVAS_ID_SEQ", sequenceName = "SGS_PROVAS_ID_SEQ")
 	@Column(name = "PROVA_ID")
 	private Long id;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "MATERIA_ID", referencedColumnName = "MATERIA_ID")
 	private Materia materia;
@@ -48,7 +55,7 @@ public @Data class Prova implements IBaseModel {
 	@Column(name = "DATA_PROVA", columnDefinition = "DATE")
 	private LocalDate data;
 
-	@ManyToMany
+	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name = "SGS_QUES_PROVA", joinColumns = { @JoinColumn(name = "PROVA_ID") }, inverseJoinColumns = {
 			@JoinColumn(name = "QUESTAO_ID") })
 	private Set<Questao> questoes = new HashSet<Questao>();

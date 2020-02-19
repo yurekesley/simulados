@@ -17,7 +17,7 @@ public class RestResponseEntityExceptionHandler extends ResponseEntityExceptionH
 	@ExceptionHandler(value = { GenericException.class })
 	protected ResponseEntity<Object> handleConflict(RuntimeException ex, WebRequest request) {
 		return handleExceptionInternal(ex, Json.error().withMensagem(ex.getLocalizedMessage()).build(),
-				new HttpHeaders(), HttpStatus.CONFLICT, request);
+				new HttpHeaders(), HttpStatus.INTERNAL_SERVER_ERROR, request);
 	}
 
 }

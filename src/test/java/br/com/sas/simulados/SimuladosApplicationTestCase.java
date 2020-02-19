@@ -6,6 +6,7 @@ import org.junit.Before;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
@@ -16,6 +17,7 @@ import br.com.triadworks.dbunit.dataset.ClassPathDataSetSource;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = { SimuladosApplication.class, TestWebAppConfig.class, DbUnitConfig.class })
+@WithMockUser(username = "sas", password = "123", roles = "ADMIN")
 public abstract class SimuladosApplicationTestCase {
 
 	public static final String codUsuarioPadrao = "sas";

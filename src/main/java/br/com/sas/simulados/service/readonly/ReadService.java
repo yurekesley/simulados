@@ -21,14 +21,9 @@ import lombok.Getter;
  */
 public abstract class ReadService<T extends IBaseModel, ID extends Serializable> implements IReadService<T, ID> {
 
-	@Getter
-	private JpaRepository<IBaseModel, ID> repository;
-
 	@Autowired
-	@SuppressWarnings("unchecked")
-	public void setRepository(JpaRepository<T, ID> repositorio) {
-		this.repository = (JpaRepository<IBaseModel, ID>) repositorio;
-	}
+	@Getter
+	private JpaRepository<T, ID> repository;
 
 	@Override
 	@SuppressWarnings("unchecked")

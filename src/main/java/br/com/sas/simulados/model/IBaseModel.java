@@ -3,6 +3,8 @@
  */
 package br.com.sas.simulados.model;
 
+import java.io.Serializable;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
@@ -10,5 +12,5 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  * @Data 17 de fev de 2020
  */
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"}) 
-public interface IBaseModel {
+public interface IBaseModel extends Serializable {
 }
