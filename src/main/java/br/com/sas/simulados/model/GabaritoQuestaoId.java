@@ -15,17 +15,13 @@ import lombok.NoArgsConstructor;
 /**
  * @author yure.placido
  * @Data 19 de fev de 2020
- * */
+ */
 @Embeddable
 @AllArgsConstructor
 @NoArgsConstructor
-public class GabaritoQuestaoId implements Serializable  {
-	
-	private static final long serialVersionUID = 1L;
+public class GabaritoQuestaoId implements Serializable {
 
-	@OneToOne
-	@JoinColumn(name = "GABARITO_ID", referencedColumnName = "GABARITO_ID")
-	private Gabarito gabarito;
+	private static final long serialVersionUID = 1L;
 
 	@OneToOne
 	@JoinColumn(name = "QUESTAO_ID", referencedColumnName = "QUESTAO_ID")

@@ -4,13 +4,13 @@
 
 
 ```javascript
-https://numeros-por-extenso.herokuapp.com/swagger-ui.html#/
-```
+https://sas-simulados.herokuapp.com/swagger-ui.html#/
 
+```
 ## Acessando a aplicação localmente com Docker, execute o comando: 
 
 ```javascript
-docker run -t -p 8000:8080 --name dockerize yurekesley/numeros-por-extenso
+docker run -t -p 8000:8080 --name dockerize yurekesley/sas-simulados
 ```
 
 #### Acessando a documentação da funcionalidade.
@@ -26,5 +26,3 @@ http://localhost:8000/swagger-ui.html
 ```javascript
 http://seu-ip:8000/swagger-ui.html
 ```
-
-

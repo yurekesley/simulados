@@ -111,6 +111,15 @@
 	  	ENUNCIADO	= "Alternativa 5"
 	  /> 
 	  
+	   <SGS_GABARITOS
+	  	GABARITO_ID = "1"
+	  />
+	  
+	<SGS_GABARITO_QUESTAO 
+	  	GABARITO_ID = "1"
+		QUESTAO_ID 	= "1"
+	  	RESPOSTA_ID = "5"
+	/>
 
 	  
 </dataset>

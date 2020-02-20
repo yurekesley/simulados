@@ -49,14 +49,14 @@ public @Data class Questao implements IBaseModel {
 	@JoinColumn(name = "MATERIA_ID", referencedColumnName = "MATERIA_ID")
 	private Materia materia;
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne
 	@JoinColumn(name = "NIVEL_ID", referencedColumnName = "NIVEL_ID")
 	private Nivel nivel;
 
 	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
 	@JoinColumn(name = "QUESTAO_ID")
 	private Set<Resposta> respostas = new HashSet<Resposta>();
-	
+
 	@JsonIgnore
 	@OneToOne
 	@JoinTable(name = "SGS_GABARITO_QUESTAO", joinColumns = { @JoinColumn(name = "QUESTAO_ID") }, inverseJoinColumns = {

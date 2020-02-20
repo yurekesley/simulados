@@ -64,7 +64,6 @@ public @Data class Prova implements IBaseModel {
 
 	@JsonIgnore
 	@OneToOne
-	@JoinColumn(name = "PROVA_ID", referencedColumnName = "PROVA_ID")
 	@JoinTable(name = "SGS_GABARITO_PROVA", joinColumns = { @JoinColumn(name = "PROVA_ID") }, inverseJoinColumns = {
 			@JoinColumn(name = "GABARITO_ID") })
 	private Gabarito gabarito;
