@@ -1,5 +1,9 @@
 ## Acessando a aplicação na Web
 
+### Login na aplicação : 
+#### user: sas
+#### pws : sas@123
+
 #### Acessando a documentação da funcionalidade.
 
 
